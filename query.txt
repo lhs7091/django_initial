@@ -1,0 +1,71 @@
+(venv) C:\django_initial>python manage.py shell
+Python 3.6.4 (v3.6.4:d48eceb, Dec 19 2017, 06:04:45) [MSC v.1900 32 bit (Intel)] on
+ win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from blog.models import Post
+>>> from django.contrib.auth.models import User
+>>> User.objects.all()
+<QuerySet [<User: root>, <User: TestUser1>]>
+>>> User.objects.first()
+<User: root>
+>>> User.objects.filter(username='root')
+<QuerySet [<User: root>]>
+>>> User.objects.filter(username='root').first()
+<User: root>
+>>> user = User.objects.filter(username='root').first()
+>>> user
+<User: root>
+>>> user.id
+1
+>>> user.pk
+1
+>>> user = User.objects.get(id=1)
+>>> user
+<User: root>
+>>> Post.objects.all()
+<QuerySet []>
+>>> post_1 = Post(title='blog 1', content='First post content!!', author=user)
+>>> Post.objects.all()
+<QuerySet []>
+>>> post_1.save()
+>>> Post.objects.all()
+<QuerySet [<Post: Post object (1)>]>
+>>> exit()
+
+(venv) C:\django_initial>python manage.py shell
+Python 3.6.4 (v3.6.4:d48eceb, Dec 19 2017, 06:04:45) [MSC v.1900 32 bit (Intel)] on
+ win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from blog.models import Post
+>>> from django.contrib.auth.models import User
+>>> Post.objects.all()
+<QuerySet [<Post: blog 1>]>
+>>> user = User.objects.filter(username='root').first()
+>>> user
+<User: root>
+>>> post_2 = Post(title='blog_2', content='Second post content', author_id=user.id)
+
+>>> post_2.save()
+>>> Post.objects.all()
+<QuerySet [<Post: blog 1>, <Post: blog_2>]>
+>>> post = Post.objects.first()
+>>> post.content
+'First post content!!'
+>>> post.date_posted
+datetime.datetime(2020, 5, 2, 7, 33, 34, 837117, tzinfo=<UTC>)
+>>> post.author
+<User: root>
+>>> post.author.email
+'lhs7091@naver.com'
+>>> user.post_set
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<lo
+cals>.RelatedManager object at 0x04950190>
+>>> user.post_set.all()
+<QuerySet [<Post: blog 1>, <Post: blog_2>]>
+>>> user.post_set.create(title='blog 3', content='Third post content')
+<Post: blog 3>
+>>> Post.objects.all()
+<QuerySet [<Post: blog 1>, <Post: blog_2>, <Post: blog 3>]>
+>>> exit()
