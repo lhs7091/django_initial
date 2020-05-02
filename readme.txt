@@ -15,9 +15,12 @@ run django
 move admin site
     http://127.0.0.1:8000/admin/
     on command
-python manage.py s
-tartapp blog
 
+templates
+    blog -> templates -> blog -> index.html....
+    add html -> settings.py -> add blog.apps.BlogConfig at installed_app
+    base.html : parents template
+                the others templates inherit from base.html
 
 
 
