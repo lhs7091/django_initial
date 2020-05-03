@@ -36,4 +36,11 @@ make a model and migration
     to check sql command
         python manage.py shell
 
+User Registration
+    python manage.py startapp users
+
+    pip install django-crispy-forms -> setting.py
+    -> installed_apps -> 'crispy_forms' -> the end line
+    -> add CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
