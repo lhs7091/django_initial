@@ -1,3 +1,6 @@
+# Django tutorial
+    https://docs.djangoproject.com/en/3.1/
+
 # django version check    
     python -m django --version
 
