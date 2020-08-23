@@ -1,33 +1,29 @@
-django version check
+# django version check    
     python -m django --version
 
-django subcommands check
+# django subcommands check
     django-admin
 
-install inital project setting
+# install inital project setting
     pip install Django
     django-admin startproject [project name]
     python manage.py startapp [application name]
 
-run django
+# run django
     python manage.py runserver
 
-move admin site
+# move admin site
+    python manage.py createsuperuser
     http://127.0.0.1:8000/admin/
     on command
 
-templates
+# templates
     blog -> templates -> blog -> index.html....
     add html -> settings.py -> add blog.apps.BlogConfig at installed_app
     base.html : parents template
                 the others templates inherit from base.html
 
-to make sure login for admin
-    python manage.py makemigrations
-    python manage.py migrate
-    python manage.py createsuperuser
-
-make a model and migration
+# make a model and migration
     create model class in models.py
     python manage.py makemigrations
     python manage.py sqlmigrate [application name] [migration No.]
@@ -36,11 +32,11 @@ make a model and migration
     to check sql command
         python manage.py shell
 
-User Registration
-    python manage.py startapp users
+# User Registration 
+    python manage.py startapp users 
 
     pip install django-crispy-forms -> setting.py
-    -> installed_apps -> 'crispy_forms' -> the end line
-    -> add CRISPY_TEMPLATE_PACK = 'bootstrap4'
+    -> installed_apps -> 'crispy_forms' -> the end line  
+    -> add CRISPY_TEMPLATE_PACK = 'bootstrap4'  
 
 
