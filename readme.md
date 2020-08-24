@@ -19,6 +19,12 @@
     python manage.py createsuperuser
     http://127.0.0.1:8000/admin/
     on command
+    
+# Getting Global Domain Name
+[ngrok download link](https://ngrok.com/download)
+
+    Unzip download file  
+    ./ngrok http 8000[Changable following to your port number]
 
 # templates
     blog -> templates -> blog -> index.html....
