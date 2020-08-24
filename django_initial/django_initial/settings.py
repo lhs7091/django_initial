@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#######'
 with open('/Users/lhs/PycharmProjects/line_api.json') as json_file:
     json_data = json.load(json_file)
-    line_bot_api = SECRET_KEY(json_data["secret_key"])
+    SECRET_KEY = json_data["secret_key"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
