@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,6 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#######'
+with open('/Users/lhs/PycharmProjects/line_api.json') as json_file:
+    json_data = json.load(json_file)
+    line_bot_api = SECRET_KEY(json_data["secret_key"])
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
